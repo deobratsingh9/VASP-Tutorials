@@ -1,43 +1,14 @@
-Global Parameters
-ISTART =  0            (Read existing wavefunction, if there)
-ISPIN  =  1            (Non-Spin polarised DFT)
-# ICHARG =  11         (Non-self-consistent: GGA/LDA band structures)
-LREAL  = .FALSE.       (Projection operators: automatic)
- ENCUT  =  500        (Cut-off energy for plane wave basis set, in eV)
-LWAVE  = .TRUE.        (Write WAVECAR or not)
-LCHARG = .TRUE.        (Write CHGCAR or not)
-ADDGRID= .TRUE.        (Increase grid, helps GGA convergence)
-LASPH  = .TRUE.        (Give more accurate total energies and band structure calculations)
-PREC   = Accurate      (Accurate strictly avoids any aliasing or wrap around errors)
- 
-Static Calculation
-ISMEAR =  0            (gaussian smearing method)
-SIGMA  =  0.08         (please check the width of the smearing)
-LORBIT =  11           (PAW radii for projected DOS)
-NEDOS  =  3501         (DOSCAR points)
-NELM   =  60           (Max electronic SCF steps)
+ISMEAR =  0            (Gaussian smearing)
+SIGMA  =  0.01         (Smearing value in eV)
 EDIFF  =  1E-08        (SCF energy convergence, in eV)
+PREC   =  Accurate     (Precision level)
+# ENCUT  =  500        (Cut-off energy for plane wave basis set, in eV)
+IALGO  =  38           (Davidson block iteration scheme)
+LREAL  = .FALSE.       (Projection operators: false)
+LWAVE  = .FALSE.       (Write WAVECAR or not)
+LCHARG = .FALSE.       (Write CHGCAR or not)
+ADDGRID= .TRUE.        (Increase grid, helps GGA convergence)
+IBRION =  8            (Calculate phonon frequencies using finite differences approach)
+LPHON_DISPERSION = T   (Calculate phonon dispersion along the q-point path supplied in file QPOINTS)
+PHON_NWRITE = -3       (Both phonon eigenvectors and phonon frequencies are written for each q point)
  
-HSE06 Calculation
-LHFCALC= .TRUE.       (Activate HF)
-AEXX   =  0.25        (25% HF exact exchange, adjusted this value to reproduce experimental band gap)
-HFSCREEN= 0.2         (Switch to screened exchange, e.g. HSE06)
-ALGO   =  ALL         (Electronic Minimisation Algorithm, ALGO=58)
-TIME   =  0.4         (Timestep for IALGO5X)
-PRECFOCK= N           (HF FFT grid)
-# NKRED    = 2        (Reduce k-grid-even only, see also NKREDX, NKREDY and NKREDZ)
-# HFLMAX   = 4        (HF cut-off: 4d, 6f)
-# LDIAG    = .TRUE.   (Diagnolise Eigenvalues)
- 
-Bader Charge Analysis
-LAECHG     = .TRUE.    (Write core charge into CHGCAR file)
-LCHARG     = .TRUE.    (Write CHGCAR file)
- 
-Electron Localization Function
-#ISTART =  1            (Read existing wavefunction, if there)
-LELF   = .TRUE.        (Activate ELF)
- 
-LDIPOL    = T
-IDIPOL    = 3
-DIPOL     = 0.5 0.5 0.5
-LVTOT     = .TRUE.      (Write total electrostatic potential into LOCPOT or not)
