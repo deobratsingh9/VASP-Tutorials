@@ -1,9 +1,9 @@
 #!/bin/bash
-#SBATCH -J pdte2
-#SBATCH -N 2
-#SBATCH --ntasks-per-node=16
-#SBATCH -t 004:00:00
-#SBATCH -A xxxxx
+#SBATCH -J 3D-BN
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=4
+#SBATCH -t 000:30:00
+#SBATCH -A naiss2025-22-1789
 
 module add VASP/5.4.4.16052018-nsc1-intel-2018a-eb
 mpprun --compat el7 vasp_std
